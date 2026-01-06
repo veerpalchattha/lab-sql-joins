@@ -1,5 +1,14 @@
 Use sakila;
 
+SELECT 
+    c.name AS category,
+    COUNT(fc.film_id) AS number_of_films
+FROM category c
+JOIN film_category fc 
+    ON c.category_id = fc.category_id
+GROUP BY c.name
+ORDER BY number_of_films DESC;
+
 select st.store_id as Store_Id, c.city as City, ct.country as Country from store as st 
 JOIN address a ON st.address_id = a.address_id
 JOIN city c ON a.city_id = c.city_id
